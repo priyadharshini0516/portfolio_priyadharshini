@@ -20,7 +20,7 @@ const projects = [
         title: "Portfolio Website 2.0",
         description: "A redesign of my personal portfolio using modern web technologies to showcase my projects and skills with better performance and aesthetics.",
         tags: ["React", "Vite", "Framer Motion", "Shadcn UI"],
-        image: "/project_portfolio_site_1769582737524.png",
+        image: "/project_portfolio_site_1769582741347.png",
         links: { demo: "#", github: "https://github.com/priyadharshini0516/portfolio_priyadharshini" }
     },
     {
