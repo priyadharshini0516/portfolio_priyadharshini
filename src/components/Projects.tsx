@@ -22,6 +22,27 @@ const projects = [
         tags: ["React", "Vite", "Framer Motion", "Shadcn UI"],
         image: "bg-gradient-to-br from-purple-500/20 to-pink-500/20",
         links: { demo: "#", github: "https://github.com/priyadharshini0516/portfolio_priyadharshini" }
+    },
+    {
+        title: "TrustScore",
+        description: "A comprehensive trust scoring system built with TypeScript. Analyzes data points to calculate reliability scores for various entities.",
+        tags: ["TypeScript", "Node.js", "Data Analysis"],
+        image: "bg-gradient-to-br from-orange-500/20 to-red-500/20",
+        links: { demo: "#", github: "https://github.com/priyadharshini0516/TrustScore" }
+    },
+    {
+        title: "Mental Health App",
+        description: "An interactive web application designed to support mental well-being, featuring mood tracking and resource accessibility.",
+        tags: ["JavaScript", "Web App", "Healthcare"],
+        image: "bg-gradient-to-br from-teal-500/20 to-cyan-500/20",
+        links: { demo: "#", github: "https://github.com/priyadharshini0516/mental-health-app" }
+    },
+    {
+        title: "Object Detection",
+        description: "Real-time object detection system using Python and Computer Vision libraries. Capable of identifying multiple object classes in video streams.",
+        tags: ["Python", "OpenCV", "Machine Learning"],
+        image: "bg-gradient-to-br from-indigo-500/20 to-blue-500/20",
+        links: { demo: "#", github: "https://github.com/priyadharshini0516/object_detection" }
     }
 ];
 
