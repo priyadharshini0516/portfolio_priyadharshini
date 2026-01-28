@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code, Layout, Smartphone, Database, BlocksIcon } from "lucide-react";
+import { Code, Layout, Smartphone, Database } from "lucide-react";
 
 const services = [
     {

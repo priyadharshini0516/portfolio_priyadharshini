@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
+import avatarImg from "../assets/avatar.png";
 
 export const Hero = () => {
     return (
@@ -59,9 +60,7 @@ export const Hero = () => {
                         <div className="absolute inset-0 bg-gradient-to-tr from-purple-500 to-blue-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
                         {/* Image Container */}
                         <div className="relative w-full h-full rounded-full border-2 border-white/10 bg-slate-900/50 backdrop-blur-sm overflow-hidden flex items-center justify-center">
-                            {/* Placeholder for Profile Image */}
-                            <span className="text-gray-500 text-lg">Profile Image</span>
-                            {/* If user uploads an image, we'll replace this */}
+                            <img src={avatarImg} alt="Priya Dharshini" className="w-full h-full object-cover" />
                         </div>
                     </div>
                 </motion.div>
