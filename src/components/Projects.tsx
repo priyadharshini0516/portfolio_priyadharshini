@@ -7,21 +7,21 @@ const projects = [
         description: "A modern, persistent to-do application built with Next.js 14 and Server Actions. Features include drag-and-drop reordering, dark mode, and category management.",
         tags: ["Next.js", "TypeScript", "Tailwind", "Prisma"],
         image: "bg-gradient-to-br from-blue-500/20 to-purple-500/20", // Placeholder gradient
-        links: { demo: "#", github: "#" }
+        links: { demo: "#", github: "https://github.com/priyadharshini0516/nextjs-todo" }
     },
     {
         title: "Waste Identifier AI",
         description: "An AI-powered application that identifies types of waste from images to assist in proper recycling sorting. Uses TensorFlow.js for client-side classification.",
         tags: ["React", "TensorFlow.js", "Python", "Material UI"],
         image: "bg-gradient-to-br from-green-500/20 to-emerald-500/20",
-        links: { demo: "#", github: "#" }
+        links: { demo: "#", github: "https://github.com/priyadharshini0516/waste-identifier" }
     },
     {
         title: "Portfolio Website 2.0",
         description: "A redesign of my personal portfolio using modern web technologies to showcase my projects and skills with better performance and aesthetics.",
         tags: ["React", "Vite", "Framer Motion", "Shadcn UI"],
         image: "bg-gradient-to-br from-purple-500/20 to-pink-500/20",
-        links: { demo: "#", github: "#" }
+        links: { demo: "#", github: "https://github.com/priyadharshini0516/portfolio_priyadharshini" }
     }
 ];
 
