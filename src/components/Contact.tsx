@@ -29,8 +29,8 @@ export const Contact = () => {
                                 </div>
                                 <div>
                                     <p className="text-sm text-gray-400">Email Me</p>
-                                    <a href="mailto:contact@priyadharshini.dev" className="text-lg font-semibold hover:text-primary transition-colors">
-                                        contact@priyadharshini.dev
+                                    <a href="mailto:priyadharshini.dev@example.com" className="text-lg font-semibold hover:text-primary transition-colors">
+                                        priyadharshini.dev@example.com
                                     </a>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ export const Contact = () => {
                                 <a href="https://github.com/priyadharshini0516" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 hover:text-white transition-all">
                                     <Github size={24} />
                                 </a>
-                                <a href="#" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
+                                <a href="https://www.linkedin.com/in/priya-dharshini-s0516" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
                                     <Linkedin size={24} />
                                 </a>
                             </div>
@@ -57,24 +57,24 @@ export const Contact = () => {
                         viewport={{ once: true }}
                         className="bg-slate-900 p-8 rounded-2xl border border-white/10 shadow-xl"
                     >
-                        <form className="space-y-6">
+                        <form action="mailto:priyadharshini.dev@example.com" method="POST" encType="text/plain" className="space-y-6">
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label htmlFor="name" className="text-sm font-medium text-gray-400">Name</label>
-                                    <input type="text" id="name" className="w-full bg-slate-800 border border-white/5 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="John Doe" />
+                                    <input type="text" id="name" name="name" className="w-full bg-slate-800 border border-white/5 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="John Doe" required />
                                 </div>
                                 <div className="space-y-2">
                                     <label htmlFor="email" className="text-sm font-medium text-gray-400">Email</label>
-                                    <input type="email" id="email" className="w-full bg-slate-800 border border-white/5 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="john@example.com" />
+                                    <input type="email" id="email" name="email" className="w-full bg-slate-800 border border-white/5 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="john@example.com" required />
                                 </div>
                             </div>
                             <div className="space-y-2">
                                 <label htmlFor="subject" className="text-sm font-medium text-gray-400">Subject</label>
-                                <input type="text" id="subject" className="w-full bg-slate-800 border border-white/5 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Project Inquiry" />
+                                <input type="text" id="subject" name="subject" className="w-full bg-slate-800 border border-white/5 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Project Inquiry" required />
                             </div>
                             <div className="space-y-2">
                                 <label htmlFor="message" className="text-sm font-medium text-gray-400">Message</label>
-                                <textarea id="message" rows={4} className="w-full bg-slate-800 border border-white/5 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none" placeholder="Tell me about your project..."></textarea>
+                                <textarea id="message" name="message" rows={4} className="w-full bg-slate-800 border border-white/5 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none" placeholder="Tell me about your project..." required></textarea>
                             </div>
 
                             <button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/25">
