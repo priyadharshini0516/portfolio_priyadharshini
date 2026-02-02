@@ -29,8 +29,8 @@ export const Contact = () => {
                                 </div>
                                 <div>
                                     <p className="text-sm text-gray-400">Email Me</p>
-                                    <a href="mailto:priyadharshini.dev@example.com" className="text-lg font-semibold hover:text-primary transition-colors">
-                                        priyadharshini.dev@example.com
+                                    <a href="mailto:priyadharshini2006cse@gmail.com" className="text-lg font-semibold hover:text-primary transition-colors">
+                                        priyadharshini2006cse@gmail.com
                                     </a>
                                 </div>
                             </div>
