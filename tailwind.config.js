@@ -6,6 +6,12 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Karla', 'sans-serif'],
+        mono: ['"Ubuntu Mono"', 'monospace'],
+        pacifico: ['Pacifico', 'cursive'],
+        source: ['"Source Sans Pro"', 'sans-serif']
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

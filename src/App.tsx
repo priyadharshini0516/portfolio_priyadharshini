@@ -1,20 +1,19 @@
+import { useState } from "react";
 import { Layout } from "./components/Layout";
-import { Hero } from "./components/Hero";
+import { HomeView } from "./components/HomeView";
 import { About } from "./components/About";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
-import { Services } from "./components/Services";
-import { Contact } from "./components/Contact";
 
 function App() {
+  const [activeView, setActiveView] = useState("home");
+
   return (
-    <Layout>
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Services />
-      <Contact />
+    <Layout activeView={activeView} setActiveView={setActiveView}>
+      {activeView === "home" && <HomeView setActiveView={setActiveView} />}
+      {activeView === "about" && <About />}
+      {activeView === "skills" && <Skills />}
+      {activeView === "projects" && <Projects />}
     </Layout>
   );
 }
