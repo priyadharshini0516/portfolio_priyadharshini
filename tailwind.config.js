@@ -13,6 +13,10 @@ export default {
         source: ['"Source Sans Pro"', 'sans-serif']
       },
       colors: {
+        black: "#4A3525",
+        white: "#F4EBD0",
+        sandal: "#F4EBD0",
+        brown: "#4A3525",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

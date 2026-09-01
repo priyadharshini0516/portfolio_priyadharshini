@@ -4,6 +4,8 @@ import { HomeView } from "./components/HomeView";
 import { About } from "./components/About";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
+import { Experience } from "./components/Experience";
+import { Feats } from "./components/Feats";
 
 function App() {
   const [activeView, setActiveView] = useState("home");
@@ -14,6 +16,8 @@ function App() {
       {activeView === "about" && <About />}
       {activeView === "skills" && <Skills />}
       {activeView === "projects" && <Projects />}
+      {activeView === "experience" && <Experience />}
+      {activeView === "feats" && <Feats />}
     </Layout>
   );
 }
