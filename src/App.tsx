@@ -6,6 +6,7 @@ import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import { Experience } from "./components/Experience";
 import { Feats } from "./components/Feats";
+import { Contact } from "./components/Contact";
 
 function App() {
   const [activeView, setActiveView] = useState("home");
@@ -18,6 +19,7 @@ function App() {
       {activeView === "projects" && <Projects />}
       {activeView === "experience" && <Experience />}
       {activeView === "feats" && <Feats />}
+      {activeView === "contact" && <Contact />}
     </Layout>
   );
 }

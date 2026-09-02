@@ -2,86 +2,92 @@ import { motion } from "framer-motion";
 import { Mail, Linkedin, Github, Send } from "lucide-react";
 
 export const Contact = () => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const name = formData.get("name") as string;
+        const email = formData.get("email") as string;
+        const message = formData.get("message") as string;
+        
+        const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage:%0D%0A${message}`;
+        window.location.href = `mailto:priyadharshini2006cse@gmail.com?subject=Portfolio Contact from ${name}&body=${body}`;
+    };
+
     return (
-        <section id="contact" className="py-24 bg-background relative overflow-hidden">
-            {/* Removed Background Gradients for vintage theme */}
+        <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="w-full min-h-screen bg-sandal text-brown relative flex flex-col items-center justify-center overflow-hidden p-8"
+        >
+            {/* Giant Background Watermark */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12vw] font-black text-brown/5 select-none pointer-events-none whitespace-nowrap z-0 tracking-widest">
+                CONTACT
+            </div>
 
-            <div className="container mx-auto px-6">
-                <div className="grid md:grid-cols-2 gap-16 items-center">
-                    {/* Left Side: Info */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's work together!</h2>
-                        <p className="text-xl text-muted-foreground mb-8">
-                            I'm always open to discussing product design work or partnership opportunities.
-                        </p>
+            <div className="relative z-10 w-full max-w-4xl bg-white/50 backdrop-blur-sm border-2 border-brown p-8 md:p-12 shadow-[12px_12px_0px_0px_#4A3525]">
+                <div className="text-center mb-12">
+                    <h2 className="text-4xl md:text-5xl font-bold font-sans mb-4">Let's Work Together</h2>
+                    <p className="font-mono text-sm text-brown/70">
+                        I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+                    </p>
+                </div>
 
-                        <div className="space-y-6">
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-card border border-border rounded-sm flex items-center justify-center text-primary">
-                                    <Mail size={24} />
-                                </div>
-                                <div>
-                                    <p className="text-sm text-muted-foreground">Email Me</p>
-                                    <a href="mailto:priyadharshini2006cse@gmail.com" className="text-lg font-semibold hover:text-primary transition-colors">
-                                        priyadharshini2006cse@gmail.com
-                                    </a>
-                                </div>
+                <div className="grid md:grid-cols-2 gap-12">
+                    {/* Left: Info */}
+                    <div className="flex flex-col justify-center space-y-8 font-mono text-sm">
+                        <div className="flex items-center gap-4 group">
+                            <div className="w-12 h-12 bg-brown text-sandal flex items-center justify-center rounded-full group-hover:scale-110 transition-transform">
+                                <Mail size={20} />
+                            </div>
+                            <div>
+                                <h3 className="font-bold uppercase tracking-widest text-xs mb-1">Email Me</h3>
+                                <a href="mailto:priyadharshini2006cse@gmail.com" className="hover:underline font-bold">priyadharshini2006cse@gmail.com</a>
                             </div>
                         </div>
 
-                        <div className="mt-12">
-                            <h3 className="text-lg font-semibold mb-4 text-foreground">Connect with me</h3>
-                            <div className="flex gap-4">
-                                <a href="https://github.com/priyadharshini0516" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-card border border-border rounded-sm flex items-center justify-center hover:border-primary hover:text-primary transition-all">
-                                    <Github size={24} />
-                                </a>
-                                <a href="https://www.linkedin.com/in/priya-dharshini-s0516" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-card border border-border rounded-sm flex items-center justify-center hover:border-primary hover:text-primary transition-all">
-                                    <Linkedin size={24} />
-                                </a>
+                        <div className="flex items-center gap-4 group">
+                            <div className="w-12 h-12 bg-brown text-sandal flex items-center justify-center rounded-full group-hover:scale-110 transition-transform">
+                                <Linkedin size={20} />
+                            </div>
+                            <div>
+                                <h3 className="font-bold uppercase tracking-widest text-xs mb-1">Connect</h3>
+                                <a href="https://www.linkedin.com/in/priya-dharshini-a76b12330" target="_blank" rel="noopener noreferrer" className="hover:underline font-bold">LinkedIn Profile</a>
                             </div>
                         </div>
-                    </motion.div>
+                        
+                        <div className="flex items-center gap-4 group">
+                            <div className="w-12 h-12 bg-brown text-sandal flex items-center justify-center rounded-full group-hover:scale-110 transition-transform">
+                                <Github size={20} />
+                            </div>
+                            <div>
+                                <h3 className="font-bold uppercase tracking-widest text-xs mb-1">Code</h3>
+                                <a href="https://github.com/priyadharshini0516" target="_blank" rel="noopener noreferrer" className="hover:underline font-bold">GitHub Portfolio</a>
+                            </div>
+                        </div>
+                    </div>
 
-                    {/* Right Side: Form */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        viewport={{ once: true }}
-                        className="bg-card p-8 rounded-sm border-2 border-border shadow-xl"
-                    >
-                        <form action="mailto:priyadharshini.dev@example.com" method="POST" encType="text/plain" className="space-y-6">
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label htmlFor="name" className="text-sm font-bold text-foreground">Name</label>
-                                    <input type="text" id="name" name="name" className="w-full bg-background border-2 border-border rounded-sm px-4 py-3 focus:outline-none focus:border-primary transition-all" placeholder="John Doe" required />
-                                </div>
-                                <div className="space-y-2">
-                                    <label htmlFor="email" className="text-sm font-bold text-foreground">Email</label>
-                                    <input type="email" id="email" name="email" className="w-full bg-background border-2 border-border rounded-sm px-4 py-3 focus:outline-none focus:border-primary transition-all" placeholder="john@example.com" required />
-                                </div>
-                            </div>
-                            <div className="space-y-2">
-                                <label htmlFor="subject" className="text-sm font-bold text-foreground">Subject</label>
-                                <input type="text" id="subject" name="subject" className="w-full bg-background border-2 border-border rounded-sm px-4 py-3 focus:outline-none focus:border-primary transition-all" placeholder="Project Inquiry" required />
-                            </div>
-                            <div className="space-y-2">
-                                <label htmlFor="message" className="text-sm font-bold text-foreground">Message</label>
-                                <textarea id="message" name="message" rows={4} className="w-full bg-background border-2 border-border rounded-sm px-4 py-3 focus:outline-none focus:border-primary transition-all resize-none" placeholder="Tell me about your project..." required></textarea>
-                            </div>
-
-                            <button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold tracking-widest uppercase py-4 rounded-sm flex items-center justify-center gap-2 transition-all">
-                                Send Message <Send size={18} />
-                            </button>
-                        </form>
-                    </motion.div>
+                    {/* Right: Form */}
+                    <form onSubmit={handleSubmit} className="space-y-6 font-mono text-sm">
+                        <div className="space-y-2">
+                            <label htmlFor="name" className="font-bold uppercase tracking-widest text-xs">Name</label>
+                            <input type="text" id="name" name="name" className="w-full bg-transparent border-b-2 border-brown/30 focus:border-brown py-2 outline-none transition-colors" placeholder="John Doe" required />
+                        </div>
+                        <div className="space-y-2">
+                            <label htmlFor="email" className="font-bold uppercase tracking-widest text-xs">Email</label>
+                            <input type="email" id="email" name="email" className="w-full bg-transparent border-b-2 border-brown/30 focus:border-brown py-2 outline-none transition-colors" placeholder="john@example.com" required />
+                        </div>
+                        <div className="space-y-2">
+                            <label htmlFor="message" className="font-bold uppercase tracking-widest text-xs">Message</label>
+                            <textarea id="message" name="message" rows={4} className="w-full bg-transparent border-2 border-brown/30 focus:border-brown p-4 outline-none transition-colors resize-none mt-2" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        <button type="submit" className="w-full bg-brown text-sandal font-bold tracking-widest uppercase py-4 flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+                            Send Message <Send size={18} />
+                        </button>
+                    </form>
                 </div>
             </div>
-        </section>
+        </motion.div>
     );
 };
