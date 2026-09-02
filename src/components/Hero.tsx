@@ -1,13 +1,25 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
-import avatarImg from "../assets/avatar.png";
+import profilePic from "../assets/profile_pic.png";
+
+const typewriterContainer = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: { staggerChildren: 0.05 }
+    }
+};
+
+const typewriterChar = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0 }
+};
 
 export const Hero = () => {
     return (
         <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
-            {/* Background Decor */}
-            <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] -z-10" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[120px] -z-10" />
+            {/* Background Decor - removed glowing orbs for vintage feel */}
+            <div className="absolute top-0 right-0 w-[300px] h-full bg-card -z-10" />
 
             <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                 {/* Text Content */}
@@ -19,29 +31,39 @@ export const Hero = () => {
                     <span className="text-primary font-medium tracking-wider mb-2 block">
                         Welcome to my portfolio
                     </span>
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                        Hi, I'm <br />
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
-                            Priya Dharshini
+                    <motion.h1 
+                        variants={typewriterContainer}
+                        initial="hidden"
+                        animate="show"
+                        className="text-5xl md:text-7xl font-bold mb-6 leading-tight font-serif border-b-4 border-foreground pb-4 inline-block"
+                    >
+                        {"Hi, I'm ".split("").map((char, i) => (
+                            <motion.span key={i} variants={typewriterChar}>{char === " " ? "\u00A0" : char}</motion.span>
+                        ))}
+                        <br />
+                        <span className="text-secondary italic font-serif">
+                            {"Priya Dharshini".split("").map((char, i) => (
+                                <motion.span key={i} variants={typewriterChar}>{char === " " ? "\u00A0" : char}</motion.span>
+                            ))}
                         </span>
-                    </h1>
-                    <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-light">
+                    </motion.h1>
+                    <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-light tracking-wide">
                         Full Stack Developer | UI/UX Designer | Innovator
                     </p>
-                    <p className="text-gray-400 mb-8 max-w-lg leading-relaxed">
+                    <p className="text-foreground mb-8 max-w-lg leading-relaxed text-lg">
                         I craft stunning, user-centric digital experiences that blend aesthetic elegance with powerful functionality.
                     </p>
 
-                    <div className="flex flex-wrap gap-4">
+                    <div className="flex flex-wrap gap-4 mt-6">
                         <a
                             href="#projects"
-                            className="px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-full font-medium transition-all flex items-center gap-2 shadow-lg shadow-primary/25"
+                            className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-bold tracking-widest uppercase transition-all flex items-center gap-2"
                         >
                             View Projects <ArrowRight size={18} />
                         </a>
                         <a
                             href="#contact"
-                            className="px-8 py-3 border border-gray-700 hover:border-gray-500 hover:bg-white/5 rounded-full font-medium transition-all flex items-center gap-2"
+                            className="px-8 py-3 border-2 border-border hover:border-primary hover:bg-card font-bold tracking-widest uppercase transition-all flex items-center gap-2"
                         >
                             Contact Me <Mail size={18} />
                         </a>
@@ -56,11 +78,10 @@ export const Hero = () => {
                     className="relative flex justify-center"
                 >
                     <div className="relative w-80 h-80 md:w-[450px] md:h-[450px]">
-                        {/* Glowing Circle Behind */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-purple-500 to-blue-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
                         {/* Image Container */}
-                        <div className="relative w-full h-full rounded-full border-2 border-white/10 bg-slate-900/50 backdrop-blur-sm overflow-hidden flex items-center justify-center">
-                            <img src={avatarImg} alt="Priya Dharshini" className="w-full h-full object-cover" />
+                        <div className="relative w-full h-full border-4 border-border bg-card overflow-hidden flex items-center justify-center p-2 shadow-2xl">
+                            <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10 pointer-events-none"></div>
+                            <img src={profilePic} alt="Priya Dharshini" className="w-full h-full object-cover grayscale sepia-[.4] contrast-110" />
                         </div>
                     </div>
                 </motion.div>
