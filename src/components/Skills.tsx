@@ -1,98 +1,111 @@
 import { motion } from "framer-motion";
-
-const skillCategories = [
-    {
-        title: "Frontend Development",
-        skills: [
-            { name: "React / Next.js", level: 90 },
-            { name: "TypeScript", level: 85 },
-            { name: "Tailwind CSS", level: 95 },
-            { name: "Framer Motion", level: 80 },
-        ],
-    },
-    {
-        title: "Backend Development",
-        skills: [
-            { name: "Node.js / Express", level: 85 },
-            { name: "Python", level: 75 },
-            { name: "PostgreSQL", level: 70 },
-            { name: "REST APIs", level: 90 },
-        ],
-    },
-    {
-        title: "Design & Tools",
-        skills: [
-            { name: "Figma (UI/UX)", level: 85 },
-            { name: "Git / GitHub", level: 90 },
-            { name: "VS Code", level: 95 },
-            { name: "Responsive Design", level: 95 },
-        ],
-    },
-    {
-        title: "Emerging Tech",
-        skills: [
-            { name: "OpenCV", level: 70 },
-            { name: "Blockchain Basics", level: 60 },
-            { name: "AI / ML Integration", level: 65 },
-        ],
-    },
-];
+import { Monitor, Cpu, Code2, Database } from "lucide-react";
 
 export const Skills = () => {
     return (
-        <section id="skills" className="py-20 bg-background relative">
-            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
-            <div className="container mx-auto px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
-                    className="mb-16 text-center"
+        <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="w-full h-screen bg-sandal text-black relative flex flex-col md:flex-row overflow-hidden"
+        >
+            {/* Network Nodes Background (SVG Pattern) */}
+            <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="network" width="100" height="100" patternUnits="userSpaceOnUse">
+                            <circle cx="20" cy="20" r="2" fill="currentColor" />
+                            <circle cx="80" cy="40" r="2" fill="currentColor" />
+                            <circle cx="50" cy="80" r="2" fill="currentColor" />
+                            <line x1="20" y1="20" x2="80" y2="40" stroke="currentColor" strokeWidth="0.5" />
+                            <line x1="80" y1="40" x2="50" y2="80" stroke="currentColor" strokeWidth="0.5" />
+                            <line x1="50" y1="80" x2="20" y2="20" stroke="currentColor" strokeWidth="0.5" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#network)" />
+                </svg>
+            </div>
+
+            {/* Giant Background Watermark */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-[15vw] font-black text-black/5 select-none pointer-events-none whitespace-nowrap z-0">
+                Skills
+            </div>
+
+            {/* Content Container */}
+            <div className="relative z-10 w-full h-full flex flex-col md:flex-row max-w-7xl mx-auto items-center justify-center gap-12 p-8">
+                
+                {/* Left Panel: Full-Stack */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="flex-1 w-full bg-white/50 backdrop-blur-sm p-10 border border-black/10 rounded-sm hover:shadow-2xl transition-all duration-500 group"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
-                    <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
-                    <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-                        A comprehensive overview of my technical expertise and proficiency levels across various domains.
-                    </p>
+                    <div className="flex items-center justify-center gap-4 mb-8">
+                        <Monitor className="w-8 h-8 group-hover:rotate-12 transition-transform" />
+                        <h2 className="text-2xl font-bold font-sans tracking-wide">Full-Stack</h2>
+                    </div>
+
+                    <div className="space-y-8 font-mono text-sm leading-relaxed">
+                        <div>
+                            <p className="text-black/70 mb-4">
+                                Building scalable products from zero to production with modern frameworks and clean architecture.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 className="font-bold mb-2 uppercase tracking-widest text-xs">Frontend & Backend</h3>
+                            <p className="text-black/80">React, Next.js, Tailwind CSS, Node.js, Express.js, FastAPI</p>
+                        </div>
+
+                        <div>
+                            <h3 className="font-bold mb-2 uppercase tracking-widest text-xs">Databases & Deployment</h3>
+                            <ul className="list-disc list-inside text-black/80 space-y-1">
+                                <li>MongoDB, MySQL, SQLite</li>
+                                <li>Vercel, Netlify, Render</li>
+                                <li>REST APIs, JWT, Git, GitHub</li>
+                            </ul>
+                        </div>
+                    </div>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-10">
-                    {skillCategories.map((category, index) => (
-                        <motion.div
-                            key={category.title}
-                            initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="bg-slate-900/40 p-6 rounded-2xl border border-white/5"
-                        >
-                            <h3 className="text-xl font-semibold mb-6 text-primary flex items-center gap-2">
-                                {category.title}
-                            </h3>
-                            <div className="space-y-6">
-                                {category.skills.map((skill) => (
-                                    <div key={skill.name}>
-                                        <div className="flex justify-between mb-2 text-sm">
-                                            <span className="text-gray-300 font-medium">{skill.name}</span>
-                                            <span className="text-gray-400">{skill.level}%</span>
-                                        </div>
-                                        <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
-                                            <motion.div
-                                                className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-                                                initial={{ width: 0 }}
-                                                whileInView={{ width: `${skill.level}%` }}
-                                                transition={{ duration: 1, delay: 0.5 }}
-                                                viewport={{ once: true }}
-                                            />
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+                {/* Right Panel: AI/ML */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="flex-1 w-full bg-brown text-sandal p-10 border border-brown rounded-sm hover:shadow-2xl transition-all duration-500 group"
+                >
+                    <div className="flex items-center justify-center gap-4 mb-8">
+                        <Cpu className="w-8 h-8 group-hover:-rotate-12 transition-transform" />
+                        <h2 className="text-2xl font-bold font-sans tracking-wide">AI/ML</h2>
+                    </div>
+
+                    <div className="space-y-8 font-mono text-sm leading-relaxed">
+                        <div>
+                            <p className="text-sandal/70 mb-4">
+                                Integrating AI, computer vision, and emerging Web3 technologies into production workflows.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 className="font-bold mb-2 uppercase tracking-widest text-xs">Languages & Web3</h3>
+                            <p className="text-sandal/80">Python, JavaScript, TypeScript, Solidity, Blockchain Fundamentals</p>
+                        </div>
+
+                        <div>
+                            <h3 className="font-bold mb-2 uppercase tracking-widest text-xs">AI / ML Expertise</h3>
+                            <ul className="list-disc list-inside text-sandal/80 space-y-1">
+                                <li>Machine Learning</li>
+                                <li>OpenCV & Computer Vision</li>
+                                <li>OCR (Optical Character Recognition)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </motion.div>
+
             </div>
-        </section>
+        </motion.div>
     );
 };

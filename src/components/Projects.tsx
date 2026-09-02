@@ -1,106 +1,128 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { Github, Globe } from "lucide-react";
 
 const projects = [
     {
+        title: "Vocab Voice App",
+        description: "An AI-enabled application featuring voice-based learning functionality to help users improve their vocabulary interactively.",
+        tags: ["#React", "#Node.js", "#AI", "#VoiceIntegration"],
+        links: { demo: "#", github: "#" }
+    },
+    {
+        title: "TrustScore",
+        description: "A comprehensive trust scoring system built as an AI-enabled application. Analyzes data points to calculate reliability scores.",
+        tags: ["#TypeScript", "#Python", "#DataAnalysis", "#AI"],
+        links: { demo: "#", github: "https://github.com/priyadharshini0516/TrustScore" }
+    },
+    {
+        title: "Codecrave / AMUHACKS 5.0",
+        description: "A project developed during the AMUHACKS 5.0 hackathon, focusing on solving real-world problems with full-stack technologies.",
+        tags: ["#Hackathon", "#FullStack", "#React", "#Express"],
+        links: { demo: "#", github: "#" }
+    },
+    {
         title: "Next.js To-Do App",
-        description: "A modern, persistent to-do application built with Next.js 14 and Server Actions. Features include drag-and-drop reordering, dark mode, and category management.",
-        tags: ["Next.js", "TypeScript", "Tailwind", "Prisma"],
-        image: "/project_todo_app_1769582162169.png",
+        description: "A modern, persistent to-do application built with Next.js 14 and Server Actions. Features include drag-and-drop reordering and dark mode.",
+        tags: ["#Nextjs", "#TypeScript", "#Tailwind", "#Prisma"],
         links: { demo: "#", github: "https://github.com/priyadharshini0516/nextjs-todo" }
     },
     {
         title: "Waste Identifier AI",
-        description: "An AI-powered application that identifies types of waste from images to assist in proper recycling sorting. Uses TensorFlow.js for client-side classification.",
-        tags: ["React", "TensorFlow.js", "Python", "Material UI"],
-        image: "/project_waste_identifier_1769582285700.png",
+        description: "An AI-powered application that identifies types of waste from images to assist in proper recycling sorting.",
+        tags: ["#React", "#TensorFlow.js", "#Python", "#MaterialUI"],
         links: { demo: "#", github: "https://github.com/priyadharshini0516/waste-identifier" }
-    },
-    {
-        title: "Portfolio Website 2.0",
-        description: "A redesign of my personal portfolio using modern web technologies to showcase my projects and skills with better performance and aesthetics.",
-        tags: ["React", "Vite", "Framer Motion", "Shadcn UI"],
-        image: "/project_portfolio_site_1769582741347.png",
-        links: { demo: "#", github: "https://github.com/priyadharshini0516/portfolio_priyadharshini" }
-    },
-    {
-        title: "TrustScore",
-        description: "A comprehensive trust scoring system built with TypeScript. Analyzes data points to calculate reliability scores for various entities.",
-        tags: ["TypeScript", "Node.js", "Data Analysis"],
-        image: "/project_trust_score_1769582370755.png",
-        links: { demo: "#", github: "https://github.com/priyadharshini0516/TrustScore" }
-    },
-    {
-        title: "Mental Health App",
-        description: "An interactive web application designed to support mental well-being, featuring mood tracking and resource accessibility.",
-        tags: ["JavaScript", "Web App", "Healthcare"],
-        image: "/project_mental_health_1769582450726.png",
-        links: { demo: "#", github: "https://github.com/priyadharshini0516/mental-health-app" }
-    },
-    {
-        title: "Object Detection",
-        description: "Real-time object detection system using Python and Computer Vision libraries. Capable of identifying multiple object classes in video streams.",
-        tags: ["Python", "OpenCV", "Machine Learning"],
-        image: "/project_object_detection_1769582541066.png",
-        links: { demo: "#", github: "https://github.com/priyadharshini0516/object_detection" }
     }
 ];
 
 export const Projects = () => {
     return (
-        <section id="projects" className="py-24 bg-slate-950">
-            <div className="container mx-auto px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
-                    className="mb-16 text-center"
-                >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-                    <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
-                </motion.div>
+        <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="w-full h-screen bg-black text-white relative overflow-hidden flex flex-col justify-center"
+        >
+            {/* Giant Background Watermark */}
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black text-white/5 select-none pointer-events-none whitespace-nowrap z-0 tracking-widest">
+                WORK
+            </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Bottom Right Swipe Watermark */}
+            <div className="absolute bottom-12 right-12 text-[8vw] font-black text-white/5 select-none pointer-events-none whitespace-nowrap z-0 flex items-center gap-8">
+                Swipe
+                <svg viewBox="0 0 100 100" className="w-24 h-24 opacity-50">
+                    <circle cx="50" cy="50" r="48" stroke="currentColor" strokeWidth="2" fill="none" />
+                    <path d="M50 2 A48 48 0 0 1 50 98 A24 24 0 0 0 50 50 A24 24 0 0 1 50 2 Z" fill="currentColor" />
+                    <circle cx="50" cy="26" r="6" className="fill-brown" />
+                    <circle cx="50" cy="74" r="6" fill="currentColor" />
+                </svg>
+            </div>
+
+            {/* Horizontal Scroll Container for Projects */}
+            <div className="w-full relative z-10 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pt-24 pb-12 px-12 md:px-32" style={{ perspective: "1000px" }}>
+                <div className="flex gap-12 w-max items-center h-full min-h-[400px]">
                     {projects.map((project, index) => (
-                        <motion.div
+                        <motion.div 
                             key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="group rounded-xl overflow-hidden bg-slate-900 border border-white/10 hover:border-primary/50 transition-all hover:shadow-2xl hover:shadow-primary/10"
+                            initial={{ opacity: 0, rotateY: 45, scale: 0.8 }}
+                            whileInView={{ opacity: 1, rotateY: 0, scale: 1 }}
+                            exit={{ opacity: 0, rotateY: -45, scale: 0.8 }}
+                            transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
+                            viewport={{ amount: 0.4, margin: "0px -100px 0px -100px" }}
+                            className="w-[350px] md:w-[450px] h-[450px] bg-white text-black p-10 flex flex-col justify-between snap-center flex-shrink-0 group hover:-translate-y-2 transition-transform duration-300"
+                            style={{ transformStyle: "preserve-3d" }}
                         >
-                            {/* Project Image */}
-                            <div className="h-48 w-full relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
-                                <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                                    <a href={project.links.demo} className="p-2 bg-white text-black rounded-full hover:bg-white/90 transition-colors" title="View Demo">
-                                        <ExternalLink size={20} />
+                            <div>
+                                <h3 className="text-2xl font-bold font-sans tracking-wide mb-8 border-b-2 border-black pb-4 text-center">
+                                    {project.title}
+                                </h3>
+                                
+                                <p className="font-mono text-sm leading-relaxed text-black/80 text-justify">
+                                    {project.description}
+                                </p>
+                            </div>
+
+                            <div>
+                                <div className="flex flex-wrap gap-2 mb-8 font-mono text-xs font-bold">
+                                    {project.tags.map(tag => (
+                                        <span key={tag}>{tag}</span>
+                                    ))}
+                                </div>
+
+                                <div className="flex items-center justify-between">
+                                    <a 
+                                        href={project.links.demo} 
+                                        className="px-6 py-2 border-2 border-black font-sans font-bold hover:bg-black hover:text-white transition-colors uppercase text-sm tracking-widest"
+                                    >
+                                        Visit
                                     </a>
-                                    <a href={project.links.github} className="p-2 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition-colors" title="View Code">
+                                    <a 
+                                        href={project.links.github}
+                                        className="p-2 border-2 border-black rounded-full hover:bg-black hover:text-white transition-colors"
+                                    >
                                         <Github size={20} />
                                     </a>
                                 </div>
                             </div>
-
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-                                <p className="text-gray-400 text-sm mb-4 line-clamp-3">
-                                    {project.description}
-                                </p>
-                                <div className="flex flex-wrap gap-2">
-                                    {project.tags.map(tag => (
-                                        <span key={tag} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary-foreground border border-primary/20">
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
                         </motion.div>
                     ))}
+                    
+                    {/* Empty spacer at the end for scrolling padding */}
+                    <div className="w-[10px] md:w-[50px] flex-shrink-0"></div>
                 </div>
             </div>
-        </section>
+            
+            {/* Custom CSS to hide scrollbar */}
+            <style>{`
+                .no-scrollbar::-webkit-scrollbar {
+                    display: none;
+                }
+                .no-scrollbar {
+                    -ms-overflow-style: none;  /* IE and Edge */
+                    scrollbar-width: none;  /* Firefox */
+                }
+            `}</style>
+        </motion.div>
     );
 };
