@@ -54,7 +54,7 @@ export const Projects = () => {
                 <svg viewBox="0 0 100 100" className="w-24 h-24 opacity-50">
                     <circle cx="50" cy="50" r="48" stroke="currentColor" strokeWidth="2" fill="none" />
                     <path d="M50 2 A48 48 0 0 1 50 98 A24 24 0 0 0 50 50 A24 24 0 0 1 50 2 Z" fill="currentColor" />
-                    <circle cx="50" cy="26" r="6" className="fill-brown" />
+                    <circle cx="50" cy="26" r="6" className="fill-charcoal" />
                     <circle cx="50" cy="74" r="6" fill="currentColor" />
                 </svg>
             </div>

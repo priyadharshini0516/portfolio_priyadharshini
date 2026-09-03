@@ -8,7 +8,7 @@ export const Skills = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
-            className="w-full h-screen bg-sandal text-black relative flex flex-col md:flex-row overflow-hidden"
+            className="w-full h-screen bg-lime text-black relative flex flex-col md:flex-row overflow-hidden"
         >
             {/* Network Nodes Background (SVG Pattern) */}
             <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
@@ -75,7 +75,7 @@ export const Skills = () => {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="flex-1 w-full bg-brown text-sandal p-10 border border-brown rounded-sm hover:shadow-2xl transition-all duration-500 group"
+                    className="flex-1 w-full bg-charcoal text-lime p-10 border border-charcoal rounded-sm hover:shadow-2xl transition-all duration-500 group"
                 >
                     <div className="flex items-center justify-center gap-4 mb-8">
                         <Cpu className="w-8 h-8 group-hover:-rotate-12 transition-transform" />
@@ -84,19 +84,19 @@ export const Skills = () => {
 
                     <div className="space-y-8 font-mono text-sm leading-relaxed">
                         <div>
-                            <p className="text-sandal/70 mb-4">
+                            <p className="text-lime/70 mb-4">
                                 Integrating AI, computer vision, and emerging Web3 technologies into production workflows.
                             </p>
                         </div>
 
                         <div>
                             <h3 className="font-bold mb-2 uppercase tracking-widest text-xs">Languages & Web3</h3>
-                            <p className="text-sandal/80">Python, JavaScript, TypeScript, Solidity, Blockchain Fundamentals</p>
+                            <p className="text-lime/80">Python, JavaScript, TypeScript, Solidity, Blockchain Fundamentals</p>
                         </div>
 
                         <div>
                             <h3 className="font-bold mb-2 uppercase tracking-widest text-xs">AI / ML Expertise</h3>
-                            <ul className="list-disc list-inside text-sandal/80 space-y-1">
+                            <ul className="list-disc list-inside text-lime/80 space-y-1">
                                 <li>Machine Learning</li>
                                 <li>OpenCV & Computer Vision</li>
                                 <li>OCR (Optical Character Recognition)</li>
