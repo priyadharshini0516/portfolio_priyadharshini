@@ -43,7 +43,7 @@ export const About = () => {
             </div>
 
             {/* Right Side (White/Sandal) */}
-            <div className="flex-1 bg-sandal relative flex items-center justify-center p-12">
+            <div className="flex-1 bg-lime relative flex items-center justify-center p-12">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
