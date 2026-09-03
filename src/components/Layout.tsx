@@ -9,7 +9,7 @@ interface LayoutProps {
 
 export const Layout = ({ children, activeView, setActiveView }: LayoutProps) => {
     return (
-        <div className="min-h-screen bg-sandal text-black font-sans overflow-hidden relative selection:bg-black selection:text-white">
+        <div className="min-h-screen bg-lime text-black font-sans overflow-hidden relative selection:bg-black selection:text-white">
             
             {/* Edge Navigation - Only visible on Home */}
             <AnimatePresence>
@@ -75,8 +75,8 @@ export const Layout = ({ children, activeView, setActiveView }: LayoutProps) => 
                             onClick={() => setActiveView('home')}
                             className={`p-2 rounded-full border transition-colors ${
                                 activeView === 'projects' || activeView === 'about'
-                                ? 'border-sandal text-sandal hover:bg-sandal hover:text-brown' 
-                                : 'border-brown text-brown hover:bg-brown hover:text-sandal'
+                                ? 'border-lime text-lime hover:bg-lime hover:text-charcoal' 
+                                : 'border-charcoal text-charcoal hover:bg-charcoal hover:text-lime'
                             }`}
                         >
                             <ArrowLeft size={24} />

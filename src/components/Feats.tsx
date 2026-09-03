@@ -35,7 +35,7 @@ export const Feats = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
-            className="w-full min-h-screen bg-sandal text-black relative p-12 md:p-24"
+            className="w-full min-h-screen bg-lime text-black relative p-12 md:p-24"
         >
             {/* Giant Background Watermark */}
             <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black text-black/5 select-none pointer-events-none whitespace-nowrap z-0 tracking-widest">
