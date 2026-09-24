@@ -27,7 +27,7 @@ export const Experience = () => {
     };
 
     return (
-        <KineticGrid globalColor="default" className="min-h-screen text-white select-none">
+        <KineticGrid globalColor="gold" className="min-h-screen text-white select-none">
             <motion.div 
                 initial="hidden"
                 animate="show"

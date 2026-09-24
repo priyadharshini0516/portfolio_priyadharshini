@@ -51,11 +51,11 @@ function lerpColor(
 export default function KineticGrid({
   children,
   className,
-  globalColor = "default",
+  globalColor = "gold",
 }: {
   children?: ReactNode;
   className?: string;
-  globalColor?: "default" | "monochrome";
+  globalColor?: "default" | "monochrome" | "gold";
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -151,12 +151,19 @@ export default function KineticGrid({
       const ripples = ripplesRef.current;
 
       const theme = {
+        gold: {
+          bg: "#070914",
+          lineActive: { r: 230, g: 200, b: 121, a: 0.95 },
+          nodeActive: { r: 230, g: 200, b: 121, a: 1.0 },
+          glow: "230,200,121",
+          ripple: "230,200,121",
+        },
         default: {
-          bg: "#161618",
-          lineActive: { r: 74, g: 158, b: 255, a: 0.9 },
-          nodeActive: { r: 74, g: 158, b: 255, a: 1.0 },
-          glow: "74,158,255",
-          ripple: "100,180,255",
+          bg: "#070914",
+          lineActive: { r: 230, g: 200, b: 121, a: 0.95 },
+          nodeActive: { r: 230, g: 200, b: 121, a: 1.0 },
+          glow: "230,200,121",
+          ripple: "230,200,121",
         },
         monochrome: {
           bg: "#000000",
@@ -165,7 +172,7 @@ export default function KineticGrid({
           glow: "255,255,255",
           ripple: "255,255,255",
         },
-      }[globalColor ?? "default"];
+      }[globalColor ?? "gold"];
 
       ctx.clearRect(0, 0, W, H);
 
