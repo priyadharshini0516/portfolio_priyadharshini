@@ -45,20 +45,24 @@ export const Experience = () => {
                     {/* Header Card (Full Width) */}
                     <motion.div 
                         variants={itemVariants}
-                        className="w-full bg-[#1C1C1C]/90 backdrop-blur-md text-lime p-8 md:p-12 border border-lime/30 rounded-xl shadow-2xl hover:shadow-[0_0_30px_rgba(204,255,0,0.15)] hover:-translate-y-1 transition-all duration-300"
+                        whileHover={{ scale: 1.01, y: -4 }}
+                        className="w-full bg-[#0E1222]/80 backdrop-blur-xl text-white p-8 md:p-12 border border-white/10 rounded-xl shadow-2xl hover:shadow-[0_0_30px_rgba(230,200,121,0.15)] transition-all duration-300 group relative overflow-hidden"
                     >
+                        {/* Top subtle glowing gold accent bar */}
+                        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E6C879]/0 via-[#E6C879] to-[#E6C879]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                         <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
                             <div className="flex items-center gap-6">
-                                <div className="p-4 bg-lime text-charcoal shadow-md rounded-lg">
+                                <div className="p-4 bg-[#E6C879] text-[#070914] shadow-md rounded-lg group-hover:scale-105 transition-transform duration-300">
                                     <Briefcase size={32} />
                                 </div>
                                 <div>
                                     <h2 className="text-3xl md:text-4xl font-sans font-bold mb-2 text-white">Techpuram Technology Pvt Ltd</h2>
-                                    <p className="font-mono text-sm uppercase tracking-widest text-lime">Full Stack Developer Intern</p>
+                                    <p className="font-mono text-sm uppercase tracking-widest text-[#E6C879]">Full Stack Developer Intern</p>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-3 mt-8 md:mt-0 font-mono text-sm font-bold border border-lime/50 px-6 py-3 bg-black/50 rounded-lg text-lime shadow-inner">
-                                <span className="w-3 h-3 rounded-full bg-lime animate-[pulse_2s_ease-in-out_infinite]"></span>
+                            <div className="flex items-center gap-3 mt-8 md:mt-0 font-mono text-sm font-bold border border-[#E6C879]/30 px-6 py-3 bg-[#070914]/60 rounded-lg text-[#E6C879] shadow-inner">
+                                <span className="w-2.5 h-2.5 rounded-full bg-[#E6C879] animate-[pulse_2s_ease-in-out_infinite]"></span>
                                 21-Nov-2025 to 10-Feb-2026
                             </div>
                         </div>
@@ -68,24 +72,28 @@ export const Experience = () => {
                         {/* Responsibilities Card */}
                         <motion.div 
                             variants={itemVariants}
-                            className="bg-[#1C1C1C]/90 backdrop-blur-md text-lime p-8 md:p-12 border border-lime/20 rounded-xl shadow-xl hover:shadow-[0_0_30px_rgba(204,255,0,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+                            whileHover={{ scale: 1.02, y: -4 }}
+                            className="bg-[#0E1222]/80 backdrop-blur-xl text-white p-8 md:p-12 border border-white/10 rounded-xl shadow-2xl hover:shadow-[0_0_30px_rgba(230,200,121,0.15)] transition-all duration-300 group relative overflow-hidden flex flex-col h-full"
                         >
-                            <div className="flex items-center gap-4 mb-8 border-b border-lime/30 pb-6">
-                                <Activity className="text-lime" size={28} />
+                            {/* Top subtle glowing gold accent bar */}
+                            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E6C879]/0 via-[#E6C879] to-[#E6C879]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                            <div className="flex items-center gap-4 mb-8 border-b border-white/10 pb-6">
+                                <Activity className="text-[#E6C879]" size={28} />
                                 <h3 className="font-bold uppercase tracking-widest text-lg text-white">Responsibilities</h3>
                             </div>
-                            <ul className="list-none space-y-4 font-mono text-sm leading-relaxed text-lime/80 flex-grow">
-                                <li className="flex items-start gap-3 hover:text-lime transition-colors">
-                                    <span className="text-lime mt-1">▹</span> Contributed to CRM full-stack development.
+                            <ul className="list-none space-y-4 font-mono text-sm leading-relaxed text-white/80 flex-grow">
+                                <li className="flex items-start gap-3 hover:text-white transition-colors">
+                                    <span className="text-[#E6C879] mt-1">▹</span> Contributed to CRM full-stack development.
                                 </li>
-                                <li className="flex items-start gap-3 hover:text-lime transition-colors">
-                                    <span className="text-lime mt-1">▹</span> Developed and integrated core CRM layouts.
+                                <li className="flex items-start gap-3 hover:text-white transition-colors">
+                                    <span className="text-[#E6C879] mt-1">▹</span> Developed and integrated core CRM layouts.
                                 </li>
-                                <li className="flex items-start gap-3 hover:text-lime transition-colors">
-                                    <span className="text-lime mt-1">▹</span> Implemented dynamic CRM fields within the application architecture.
+                                <li className="flex items-start gap-3 hover:text-white transition-colors">
+                                    <span className="text-[#E6C879] mt-1">▹</span> Implemented dynamic CRM fields within the application architecture.
                                 </li>
-                                <li className="flex items-start gap-3 hover:text-lime transition-colors">
-                                    <span className="text-lime mt-1">▹</span> Worked effectively within an agile organizational environment.
+                                <li className="flex items-start gap-3 hover:text-white transition-colors">
+                                    <span className="text-[#E6C879] mt-1">▹</span> Worked effectively within an agile organizational environment.
                                 </li>
                             </ul>
                         </motion.div>
@@ -93,21 +101,25 @@ export const Experience = () => {
                         {/* Impact Card */}
                         <motion.div 
                             variants={itemVariants}
-                            className="bg-[#1C1C1C]/90 backdrop-blur-md text-lime p-8 md:p-12 border border-lime/20 rounded-xl shadow-xl hover:shadow-[0_0_30px_rgba(204,255,0,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+                            whileHover={{ scale: 1.02, y: -4 }}
+                            className="bg-[#0E1222]/80 backdrop-blur-xl text-white p-8 md:p-12 border border-white/10 rounded-xl shadow-2xl hover:shadow-[0_0_30px_rgba(127,196,255,0.15)] transition-all duration-300 group relative overflow-hidden flex flex-col h-full"
                         >
-                            <div className="flex items-center gap-4 mb-8 border-b border-lime/30 pb-6">
-                                <Target className="text-lime" size={28} />
+                            {/* Top subtle glowing blue accent bar */}
+                            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#7FC4FF]/0 via-[#7FC4FF] to-[#7FC4FF]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                            <div className="flex items-center gap-4 mb-8 border-b border-white/10 pb-6">
+                                <Target className="text-[#7FC4FF]" size={28} />
                                 <h3 className="font-bold uppercase tracking-widest text-lg text-white">Impact & Results</h3>
                             </div>
-                            <ul className="list-none space-y-4 font-mono text-sm leading-relaxed text-lime/80 flex-grow">
-                                <li className="flex items-start gap-3 hover:text-lime transition-colors">
-                                    <span className="text-lime mt-1">▹</span> Completed an intensive 50-working-day development internship.
+                            <ul className="list-none space-y-4 font-mono text-sm leading-relaxed text-white/80 flex-grow">
+                                <li className="flex items-start gap-3 hover:text-white transition-colors">
+                                    <span className="text-[#7FC4FF] mt-1">▹</span> Completed an intensive 50-working-day development internship.
                                 </li>
-                                <li className="flex items-start gap-3 hover:text-lime transition-colors">
-                                    <span className="text-lime mt-1">▹</span> Successfully delivered production-ready CRM layouts and fields modules.
+                                <li className="flex items-start gap-3 hover:text-white transition-colors">
+                                    <span className="text-[#7FC4FF] mt-1">▹</span> Successfully delivered production-ready CRM layouts and fields modules.
                                 </li>
-                                <li className="flex items-start gap-3 hover:text-lime transition-colors">
-                                    <span className="text-lime mt-1">▹</span> Received an official <strong className="text-lime">"Excellent"</strong> performance remark from management.
+                                <li className="flex items-start gap-3 hover:text-white transition-colors">
+                                    <span className="text-[#7FC4FF] mt-1">▹</span> Received an official <strong className="text-[#7FC4FF]">"Excellent"</strong> performance remark from management.
                                 </li>
                             </ul>
                         </motion.div>
@@ -117,4 +129,5 @@ export const Experience = () => {
         </KineticGrid>
     );
 };
+
 
