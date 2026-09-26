@@ -71,19 +71,21 @@ export const Feats = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="w-full min-h-screen bg-lime text-black relative overflow-y-auto select-none"
+            className="w-full min-h-screen text-black relative overflow-y-auto select-none"
         >
-            {/* Vintage Book Background Texture Overlay */}
+            {/* Vintage Scrapbook & Newspaper Collage Background Image */}
             <div 
-                className="fixed inset-0 opacity-15 pointer-events-none z-0"
+                className="fixed inset-0 pointer-events-none z-0 bg-cover bg-center bg-no-repeat opacity-90"
                 style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='600' height='600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E")`,
-                    backgroundRepeat: "repeat"
+                    backgroundImage: `url('/feats_bg.png')`,
                 }}
             />
 
+            {/* Soft Warm Vignette & Tint Overlay */}
+            <div className="fixed inset-0 pointer-events-none z-0 bg-[#EFE9DF]/20 mix-blend-multiply" />
+
             {/* Fixed Giant Watermark "FEATURES" */}
-            <div className="fixed top-28 left-8 md:left-16 text-[11vw] font-black text-black/15 select-none pointer-events-none whitespace-nowrap z-0 tracking-wider font-sans uppercase">
+            <div className="fixed top-28 left-6 md:left-14 text-[12vw] font-black text-black/20 select-none pointer-events-none whitespace-nowrap z-0 tracking-wider font-sans uppercase">
                 FEATURES
             </div>
 
@@ -92,24 +94,31 @@ export const Feats = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
                     {feats.map((feat, index) => {
                         const BadgeIcon = feat.badge;
+                        const isEven = index % 2 === 0;
                         return (
                             <motion.div 
                                 key={index}
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                                className="bg-white border-2 border-black p-0 overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                                className={`border-2 border-black p-0 overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[14px_14px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group ${
+                                    isEven ? "bg-[#1C1C1C] text-white" : "bg-white text-black"
+                                }`}
                             >
                                 {/* Certificate Image Container (Top Half) */}
-                                <div className="w-full h-52 md:h-60 border-b-2 border-black bg-[#FAF8F5] p-5 flex flex-col justify-between items-center text-center relative overflow-hidden group-hover:bg-[#F4F0EA] transition-colors">
+                                <div className={`w-full h-52 md:h-60 border-b-2 border-black p-5 flex flex-col justify-between items-center text-center relative overflow-hidden transition-colors ${
+                                    isEven ? "bg-[#262626] text-white" : "bg-[#FAF8F5] text-black"
+                                }`}>
                                     {/* Ornamental Certificate Frame Borders */}
-                                    <div className="absolute inset-2 border border-black/20 pointer-events-none"></div>
-                                    <div className="absolute inset-3 border-2 border-dashed border-black/10 pointer-events-none"></div>
+                                    <div className={`absolute inset-2 border pointer-events-none ${isEven ? "border-white/20" : "border-black/20"}`}></div>
+                                    <div className={`absolute inset-3 border-2 border-dashed pointer-events-none ${isEven ? "border-white/10" : "border-black/10"}`}></div>
 
                                     {/* Certificate Header */}
-                                    <div className="w-full flex justify-between items-center z-10 border-b border-black/15 pb-2">
-                                        <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-black/60">{feat.type}</span>
-                                        <div className="flex items-center gap-1 bg-black text-white px-2 py-0.5 rounded-xs font-mono text-[9px]">
+                                    <div className={`w-full flex justify-between items-center z-10 border-b pb-2 ${isEven ? "border-white/15" : "border-black/15"}`}>
+                                        <span className={`font-mono text-[10px] uppercase font-bold tracking-widest ${isEven ? "text-white/70" : "text-black/60"}`}>{feat.type}</span>
+                                        <div className={`flex items-center gap-1 px-2.5 py-0.5 rounded-xs font-mono text-[9px] font-bold ${
+                                            isEven ? "bg-white text-black" : "bg-black text-white"
+                                        }`}>
                                             <BadgeIcon size={12} />
                                             <span>VERIFIED</span>
                                         </div>
@@ -117,32 +126,38 @@ export const Feats = () => {
 
                                     {/* Certificate Center Content */}
                                     <div className="my-auto z-10 px-3 py-1">
-                                        <div className="font-serif italic text-xs text-black/70 mb-1">Certificate of Completion</div>
-                                        <div className="font-sans font-extrabold text-sm md:text-base text-black tracking-tight uppercase line-clamp-2">
+                                        <div className={`font-serif italic text-xs mb-1 ${isEven ? "text-white/70" : "text-black/70"}`}>Certificate of Completion</div>
+                                        <div className={`font-sans font-extrabold text-sm md:text-base tracking-tight uppercase line-clamp-2 ${isEven ? "text-white" : "text-black"}`}>
                                             {feat.certTitle}
                                         </div>
-                                        <div className="w-20 h-[1.5px] bg-black/40 mx-auto my-2"></div>
-                                        <div className="font-mono text-[11px] font-bold text-black/80">{feat.certOrg}</div>
+                                        <div className={`w-20 h-[1.5px] mx-auto my-2 ${isEven ? "bg-white/40" : "bg-black/40"}`}></div>
+                                        <div className={`font-mono text-[11px] font-bold ${isEven ? "text-white/90" : "text-black/80"}`}>{feat.certOrg}</div>
                                     </div>
 
                                     {/* Certificate Footer */}
-                                    <div className="w-full z-10 border-t border-black/15 pt-1.5 flex justify-between items-center font-mono text-[9px] text-black/60 font-semibold">
+                                    <div className={`w-full z-10 border-t pt-1.5 flex justify-between items-center font-mono text-[9px] font-semibold ${
+                                        isEven ? "border-white/15 text-white/60" : "border-black/15 text-black/60"
+                                    }`}>
                                         <span>OFFICIAL CREDENTIAL</span>
                                         <span>{feat.date}</span>
                                     </div>
                                 </div>
 
                                 {/* Content Section (Bottom Half) */}
-                                <div className="p-6 flex flex-col flex-1 justify-between bg-white">
+                                <div className={`p-6 flex flex-col flex-1 justify-between ${isEven ? "bg-[#1C1C1C] text-white" : "bg-white text-black"}`}>
                                     <div>
-                                        <h3 className="text-lg md:text-xl font-bold font-sans text-black leading-snug mb-3 group-hover:text-black/80 transition-colors">
+                                        <h3 className={`text-lg md:text-xl font-bold font-sans leading-snug mb-3 transition-colors ${
+                                            isEven ? "text-white group-hover:text-white/80" : "text-black group-hover:text-black/80"
+                                        }`}>
                                             {feat.title}
                                         </h3>
 
-                                        <div className="w-full h-[2px] bg-black my-3"></div>
+                                        <div className={`w-full h-[2px] my-3 ${isEven ? "bg-white/30" : "bg-black"}`}></div>
 
                                         {/* Hashtags / Badges */}
-                                        <div className="flex flex-wrap gap-2 text-xs md:text-sm font-mono font-bold text-black my-3">
+                                        <div className={`flex flex-wrap gap-2 text-xs md:text-sm font-mono font-bold my-3 ${
+                                            isEven ? "text-white/90" : "text-black"
+                                        }`}>
                                             {feat.tags.map(tag => (
                                                 <span key={tag} className="hover:underline cursor-pointer">{tag}</span>
                                             ))}
@@ -150,7 +165,9 @@ export const Feats = () => {
                                     </div>
 
                                     {/* Issuer & Date Footer */}
-                                    <div className="border-t border-black/15 pt-3 mt-2 font-mono text-xs text-black/80 flex justify-between items-center">
+                                    <div className={`border-t pt-3 mt-2 font-mono text-xs flex justify-between items-center ${
+                                        isEven ? "border-white/15 text-white/80" : "border-black/15 text-black/80"
+                                    }`}>
                                         <span className="truncate pr-2">{feat.issuer}</span>
                                         <span className="whitespace-nowrap font-bold text-[11px]">{feat.date}</span>
                                     </div>
@@ -163,6 +180,7 @@ export const Feats = () => {
         </motion.div>
     );
 };
+
 
 
 
